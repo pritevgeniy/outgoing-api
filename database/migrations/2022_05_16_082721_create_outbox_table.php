@@ -24,7 +24,7 @@ return new class extends Migration
 
         Schema::create('phones', static function (Blueprint $table) {
             $table->id();
-            $table->string('phone');
+            $table->string('phone')->index('I_phone');
             $table->integer('active')->default(1);
             $table->softDeletes();
             $table->timestamps();
@@ -32,7 +32,7 @@ return new class extends Migration
 
         Schema::create('emails', static function (Blueprint $table) {
             $table->id();
-            $table->string('email');
+            $table->string('email')->index('I_email');
             $table->integer('active')->default(1);
             $table->softDeletes();
             $table->timestamps();
@@ -40,7 +40,7 @@ return new class extends Migration
 
         Schema::create('sms', static function (Blueprint $table) {
             $table->id();
-            $table->string('phone');
+            $table->string('phone')->index('I_phone');
             $table->integer('active')->default(1);
             $table->softDeletes();
             $table->timestamps();
