@@ -12,11 +12,18 @@ use App\Models\Phone;
 
 class PhoneController extends Controller
 {
+    /**
+     * @return AnonymousResourceCollection
+     */
     public function index(): AnonymousResourceCollection
     {
         return Resource::collection(Phone::all());
     }
 
+    /**
+     * @param PhoneRequest $request
+     * @return Resource
+     */
     public function store(PhoneRequest $request): Resource
     {
         $posts = Phone::create($request->all());
@@ -36,15 +43,23 @@ class PhoneController extends Controller
         return new Resource($phone);
     }
 
-    public function show(Phone $phone)
+    /**
+     * @param Phone $phone
+     * @return Resource
+     */
+    public function show(Phone $phone): Resource
     {
-        return response()->json([new Resource($phone)]);
+        return new Resource($phone);
     }
 
-    public function destroy(Phone $phone)
+    /**
+     * @param Phone $phone
+     * @return string
+     */
+    public function destroy(Phone $phone): string
     {
         $phone->delete();
 
-        return response()->json('Email deleted successfully');
+        return 'Email deleted successfully';
     }
 }

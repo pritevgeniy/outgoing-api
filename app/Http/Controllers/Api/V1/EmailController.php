@@ -17,6 +17,10 @@ class EmailController extends Controller
         return Resource::collection(Email::all());
     }
 
+    /**
+     * @param EmailRequest $request
+     * @return Resource
+     */
     public function store(EmailRequest $request): Resource
     {
         $posts = Email::create($request->all());
@@ -36,15 +40,23 @@ class EmailController extends Controller
         return new Resource($email);
     }
 
-    public function show(Email $email)
+    /**
+     * @param Email $email
+     * @return Resource
+     */
+    public function show(Email $email): Resource
     {
-        return response()->json([new Resource($email)]);
+        return new Resource($email);
     }
 
-    public function destroy(Email $email)
+    /**
+     * @param Email $email
+     * @return string
+     */
+    public function destroy(Email $email): string
     {
         $email->delete();
 
-        return response()->json('Email deleted successfully');
+        return 'Email deleted successfully';
     }
 }

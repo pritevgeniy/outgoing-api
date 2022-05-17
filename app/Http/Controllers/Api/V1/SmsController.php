@@ -12,11 +12,18 @@ use App\Models\Sms;
 
 class SmsController extends Controller
 {
+    /**
+     * @return AnonymousResourceCollection
+     */
     public function index(): AnonymousResourceCollection
     {
         return Resource::collection(Sms::all());
     }
 
+    /**
+     * @param SmsRequest $request
+     * @return Resource
+     */
     public function store(SmsRequest $request): Resource
     {
         $posts = Sms::create($request->all());

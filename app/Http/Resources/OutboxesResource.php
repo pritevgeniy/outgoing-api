@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Contracts\Support\Arrayable;
-use JsonSerializable;
 
 class OutboxesResource extends JsonResource
 {
@@ -18,10 +16,10 @@ class OutboxesResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'from' => $this->out::class,
+            'to' => $this->out->getValue(),
             'text' => $this->text,
             'status' => $this->status,
-            'from' => $this->out::class,
-            'to' => $this->out->getValue()
         ];
     }
 }
