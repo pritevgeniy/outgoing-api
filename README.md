@@ -17,3 +17,17 @@
 
 
 Вывод с api* в формате json(ошибки в том числе)
+
+*GET /api/v1/outgoing* получение списка Исходящих 
+
+*POST /api/v1/sms* Создание
+
+*GET|PUT|DELETE /api/v1/sms/1* Получение
+
+*POST /api/v1/phone* Создание
+
+*GET|PUT|DELETE /api/v1/phone/1* Получение
+
+*POST /api/v1/email* Создание
+
+*GET|PUT|DELETE /api/v1/email/1* Получение
