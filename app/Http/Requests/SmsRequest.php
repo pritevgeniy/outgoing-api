@@ -20,7 +20,7 @@ class SmsRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone'  => ['required']
+            'phone'  => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10']
         ];
     }
 }
